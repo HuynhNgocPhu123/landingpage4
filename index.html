@@ -466,6 +466,7 @@
   transform: translateY(-40px);
   transition: all 1s ease; /* Hiệu ứng chuyển động chậm */
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Thêm bóng cho chữ */
+   animation: pulseEffect 1.5s ease-in-out infinite, slideInUp 0.8s ease-out forwards; /* Thêm nhịp tim và hiệu ứng vào */
 }
 
 .product-details h2.visible {
@@ -559,6 +560,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Bóng nhẹ cho chữ */
+  animation: pulseEffect 1.5s ease-in-out infinite, slideInUp 0.8s ease-out forwards; /* Thêm nhịp tim và hiệu ứng vào */
 }
 
 /* Cấu trúc card */
@@ -659,7 +661,7 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Bóng nhẹ cho chữ */
-  
+  animation: pulseEffect 1.5s ease-in-out infinite, slideInUp 0.8s ease-out forwards; /* Thêm nhịp tim và hiệu ứng vào */
 }
 
 /* Hiệu ứng nhịp tim cho tiêu đề */
@@ -1095,6 +1097,189 @@ footer {
     opacity: 1;
   }
 }
+
+/*Hướng dẫn đặt hàng*/
+/*Hướng dẫn đặt hàng*/
+.dathang{
+  background-color: #eae8e8;
+}
+        .order-timeline {
+            position: relative;
+            padding: 40px 10px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .order-timeline::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 4px;
+            height: calc(100% - 40px);
+            background: #acacac;
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+        .section-title {
+            text-align: center;
+             font-size: 36px;
+            font-family: 'Poppins', sans-serif;
+            color: #000000; /* Màu vàng nổi bật */
+
+            font-weight: 700; /* Chữ đậm */
+            text-transform: uppercase; /* Viết hoa để thu hút sự chú ý */
+            letter-spacing: 1px; /* Tăng khoảng cách giữa các chữ */
+            animation: pulseEffect 1.5s ease-in-out infinite, slideInUp 0.8s ease-out forwards; /* Thêm nhịp tim và hiệu ứng vào */
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Thêm bóng cho chữ */
+        }
+
+        .timeline-step {
+            position: relative;
+            width: 50%;
+            padding: 20px 30px;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .timeline-step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-step.left {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-step.right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .timeline-step .content {
+            background: #fff;
+            padding: 15px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+            display: inline-block;
+            position: relative;
+        }
+
+        /* Circle số */
+        .timeline-step .circle {
+            position: absolute;
+            top: 25px;
+            width: 32px;
+            height: 32px;
+            background: #ff6347;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            z-index: 2;
+            box-shadow: 0 0 0 4px #fff;
+        }
+
+        .timeline-step.left .circle {
+            right: -16px;
+        }
+
+        .timeline-step.right .circle {
+            left: -16px;
+        }
+
+        /* Tooltip chi tiết */
+        /* Tooltip chi tiết – ĐẸP HƠN */
+        .timeline-step .tooltip-note {
+            position: absolute;
+            top: -70px;
+            max-width: 240px;
+            background: #fffbf0;
+            color: #333;
+            padding: 12px 16px;
+            border-radius: 10px;
+            font-size: 14px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            pointer-events: none;
+            transform: translateY(-10px);
+            z-index: 10;
+            font-weight: 500;
+            border: 1px solid #f0c36d;
+        }
+
+        /* Vị trí trái/phải */
+        .timeline-step.left .tooltip-note {
+            right: 0;
+        }
+
+        .timeline-step.right .tooltip-note {
+            left: 0;
+        }
+
+        /* Mũi tên chỉ xuống */
+        .timeline-step .tooltip-note::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 20px;
+            border-width: 10px 10px 0 10px;
+            border-style: solid;
+            border-color: #fffbf0 transparent transparent transparent;
+        }
+
+        /* Hiển thị khi hover */
+        .timeline-step:hover .tooltip-note {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* Text */
+        .timeline-step h4 {
+            font-size: 17px;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            color: #333;
+        }
+
+        .timeline-step p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 768px) {
+            .timeline-step,
+            .timeline-step.left,
+            .timeline-step.right {
+                width: 100%;
+                left: 0;
+                text-align: left;
+                padding-left: 50px;
+            }
+
+            .timeline-step .circle {
+                left: 10px !important;
+                right: auto !important;
+            }
+
+            .order-timeline::before {
+                left: 26px;
+            }
+
+            .timeline-step .tooltip-note {
+                left: 50px;
+                right: auto;
+            }
+        }
   </style>
 </head>
 <body>
@@ -1424,7 +1609,54 @@ footer {
     </div>
   </div>
 </div>
+<!--Hướng dẫn đặt hàng-->
+<section class="dathang" style="padding: 10px;">
+  <div >
 
+  <h2 class="section-title" id="order" >Hướng Dẫn Đặt Hàng</h2>
+        <div class="order-timeline" >
+        <div class="timeline-step left">
+        <div class="content">
+            <h4>Bước 1</h4>
+            <p>Chọn số lượng sản phẩm mong muốn</p>
+            <div class="tooltip-note">Bạn có thể chọn 1 hoặc nhiều sản phẩm tùy nhu cầu</div>
+        </div>
+        <div class="circle">1</div>
+        </div>
+
+
+        <div class="timeline-step right" data-note="Dùng 'Mua Ngay' để thanh toán nhanh, hoặc thêm vào giỏ để tiếp tục mua.">
+            <div class="note-tooltip"></div>
+            <div class="content">
+            <h4>Bước 2</h4>
+            <p>Nhấn nút <strong>'Mua Ngay'</strong> hoặc <strong>'Thêm vào giỏ'</strong></p>
+            <div class="tooltip-note">Dùng 'Mua Ngay' để thanh toán nhanh, hoặc thêm vào giỏ để tiếp tục mua.</div>
+            </div>
+            <div class="circle">2</div>
+        </div>
+
+        <div class="timeline-step left" data-note="Hãy điền đúng tên, địa chỉ và số điện thoại để nhận hàng chính xác.">
+            <div class="note-tooltip"></div>
+            <div class="content">
+            <h4>Bước 3</h4>
+            <p>Điền thông tin giao hàng: tên, địa chỉ, số điện thoại</p>
+            <div class="tooltip-note">Hãy điền đúng tên, địa chỉ và số điện thoại để nhận hàng chính xác.</div>
+            </div>
+            <div class="circle">3</div>
+        </div>
+
+        <div class="timeline-step right" data-note="Kiểm tra lại đơn, nhấn xác nhận. Giao hàng từ 1–3 ngày.">
+            <div class="note-tooltip"></div>
+            <div class="content">
+            <h4>Bước 4</h4>
+            <p>Xác nhận đơn và chờ giao hàng tận nơi 🚚</p>
+            <div class="tooltip-note">Kiểm tra lại đơn, nhấn xác nhận. Giao hàng từ 1–3 ngày.</div>
+            </div>
+            <div class="circle">4</div>
+        </div>
+        </div>
+</div>
+</section>
 
 <section class="testimonial-section" id="ykien">
   <h2 class="section-title">Ý kiến khách hàng</h2>
@@ -1629,3 +1861,18 @@ document.getElementById('submitConsult').addEventListener('click', function() {
 });
 </script>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.timeline-step').forEach(step => observer.observe(step));
+});
+
+</script>
