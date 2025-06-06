@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Landing Page Đồng Hồ</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <style>
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+      text-transform: uppercase;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      margin: 0 10px;
+      text-transform: uppercase;
+      color: #333 !important;
+      position: relative;
+    }
+
+    .nav-link::after {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #000;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .btn-cta {
+      background-color: #000;
+      color: #fff;
+      border-radius: 20px;
+      padding: 6px 20px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .btn-cta:hover {
+      background-color: #333;
+      color: #fff;
+    }
+
+    .navbar {
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    /* Custom layout to center menu */
+    @media (min-width: 992px) {
+      .navbar .navbar-nav {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    .btn-cta {
+    background-color: #000;
+    color: #fff;
+    border-radius: 25px;
+    padding: 10px 28px;
+    font-weight: 600;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: pulse 2s infinite;
+  }
+
+  .btn-cta:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    animation: none;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.4);
+    }
+    70% {
+      transform: scale(1.05);
+      box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+    100% {
+      transform: scale(1);
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+  }
+  /* Hero */
+   /* Vùng Hero tổng thể */
+  /* Nền vùng Hero */
+  .hero-2col {
+    min-height: 100vh;
+    background: rgb(252,242,229);
+    padding: 100px 0;
+  }
+
+  /* Slogan */
+  .hero-2col h1 {
+    font-size: 2.8rem;
+    font-family: 'Poppins', sans-serif;
+    color: #1a1a1a;
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideInLeft 1s ease-out forwards;
+  }
+
+  .hero-2col p {
+    font-size: 1.2rem;
+    color: #444;
+    max-width: 500px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideInLeft 1s ease-out forwards;
+    animation-delay: 0.3s;
+    margin-left: -5px;
+  }
+
+  /* 2 nút: pulse + fade in */
+  .btn-cta,
+  .btn-outline-dark {
+    border-radius: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+  }
+
+  .btn-cta {
+    background-color: #ffb703;
+    color: #000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    margin-left: 5px;
+  }
+
+  .btn-cta:hover {
+    background-color: #e9a500;
+    transform: scale(1.05);
+  }
+
+  .btn-outline-dark:hover {
+    background-color: #000;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  }
+
+  /* Hiệu ứng pulse như nhịp tim */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.08);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  /* Ảnh sản phẩm bên phải: slide + zoom */
+/* Ảnh sản phẩm bên phải: lay nhẹ */
+.hero-2col img {
+  opacity: 0;
+  transform: translateX(50px) scale(0.95);
+  animation: slideInRightZoom 1.2s ease-out forwards, shake 2s infinite ease-in-out;
+  animation-delay: 0.5s;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Hiệu ứng lay nhẹ mãi mãi */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Các animation khác */
+@keyframes slideInRightZoom {
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+
+  @keyframes slideInLeft {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+
+  @media (max-width: 768px) {
+    .hero-2col h1 {
+      font-size: 2rem;
+    }
+
+    .hero-2col p {
+      font-size: 1rem;
+    }
+
+    .text-lg-start {
+      text-align: center !important;
+    }
+  }
+/* Section Giới thiệu */
+/* Giới thiệu về công ty */
+/* Giới thiệu về công ty */
+/* Giới thiệu về công ty */
+.company-info {
+  background: rgb(252, 248, 248);
+  padding: 80px 0;
+  opacity: 0; /* Ẩn phần tử ban đầu */
+}
+
+.company-info.show {
+  opacity: 1; /* Khi cuộn vào, hiển thị */
+}
+
+.company-info .company-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  max-height: 350px; /* Giới hạn chiều cao ảnh */
+  object-fit: cover; /* Giúp ảnh không bị méo */
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 1s ease-out;
+}
+
+.company-info.show .company-image {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.company-info h2, 
+.company-info p {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease-out;
+}
+
+.company-info.show h2,
+.company-info.show p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .company-info .row {
+    text-align: center; /* Căn giữa trên màn hình nhỏ */
+  }
+
+  .company-info .company-image {
+    max-height: 300px; /* Giảm chiều cao ảnh trên mobile */
+  }
+
+  .company-info h2 {
+    font-size: 2rem;
+  }
+
+  .company-info p {
+    font-size: 1rem;
+  }
+}
+
+/*Công dụng */
+/* Công dụng sản phẩm */
+.benefit-section {
+  background: rgb(231, 248, 251); /* Màu nền nhẹ nhàng */
+  text-align: center;
+  padding: 60px 20px;
+  overflow: hidden;
+}
+
+/* Tiêu đề "Công dụng sản phẩm" */
+.benefit-section h2 {
+  font-size: 36px;
+  font-family: 'Poppins', sans-serif;
+  color: #000000; /* Màu vàng nổi bật */
+  margin-bottom: 40px;
+  font-weight: 700; /* Chữ đậm */
+  text-transform: uppercase; /* Viết hoa để thu hút sự chú ý */
+  letter-spacing: 1px; /* Tăng khoảng cách giữa các chữ */
+  opacity: 0;
+  transform: translateY(-40px);
+  animation: pulseEffect 1.5s ease-in-out infinite, slideInUp 0.8s ease-out forwards; /* Thêm nhịp tim và hiệu ứng vào */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Thêm bóng cho chữ */
+}
+
+/* Hiệu ứng nhịp tim (pulse) */
+@keyframes pulseEffect {
+  0%, 100% {
+    transform: scale(1); /* Bình thường */
+  }
+  50% {
+    transform: scale(1.1); /* Mở rộng giống như nhịp tim */
+  }
+}
+
+.benefit-section h2.visible {
+  opacity: 1 !important;
+  transform: translateY(0);
+}
+
+
+.benefit-grid {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.benefit-col {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  flex: 1;
+  min-width: 250px;
+}
+
+.benefit-item {
+  text-align: center;
+  opacity: 0;
+  transform: translateX(-80px);
+  transition: all 0.8s ease;
+}
+
+.benefit-item img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #ebfffa; /* Màu viền vàng nổi bật */
+  object-fit: cover;
+  margin-bottom: 10px;
+  box-shadow: 0 0 15px rgba(178, 224, 224, 0.3); /* Bóng nhẹ */
+  animation: bouncePulse 2s infinite;
+}
+
+.benefit-item img:hover {
+  transform: scale(1.1);
+}
+
+.benefit-item h3 {
+  font-size: 18px;
+  color: #26cbcb; /* Màu chữ cho tiêu đề công dụng */
+  margin-bottom: 10px;
+}
+
+.benefit-item p {
+  font-size: 15px;
+  color: #444; /* Màu chữ cho mô tả công dụng */
+  line-height: 1.6;
+}
+
+.benefit-center {
+  margin-top: 20px;
+  flex: 1;
+  min-width: 290px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.center-product {
+  max-width: 100%;
+  height: 300px;
+  border-radius: 10px;
+ 
+}
+
+.animate-on-scroll.visible {
+  opacity: 1 !important;
+  transform: translateX(0) translateY(0) scale(1) !important;
+}
+
+/* Hiệu ứng hover cho các ô */
+@keyframes bouncePulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 12px rgba(187, 255, 245, 0.4);
+  }
+  50% {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(62, 188, 202, 0.6);
+  }
+}
+
+.pulse-loop {
+  animation: bouncePulse 2.5s infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .benefit-section {
+    padding: 40px 10px;
+  }
+
+  .benefit-section h2 {
+    font-size: 2rem;
+  }
+
+  .benefit-item {
+    width: 80%;
+  }
+
+  .benefit-item img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .benefit-center {
+    width: 80%;
+  }
+}
+
+
+/* chi tiết sản phẩm */
+/* Chi tiết sản phẩm */
+/* Chi tiết sản phẩm */
+/* Chi tiết sản phẩm */
+.product-details {
+  background-color: #f8f9fa;
+  padding: 60px 20px;
+}
+
+.product-details h2 {
+  font-size: 36px;
+  font-family: 'Poppins', sans-serif;
+  color: #000000; /* Màu vàng nổi bật */
+  margin-bottom: 40px;
+  font-weight: 700; /* Chữ đậm */
+  text-transform: uppercase; /* Viết hoa để thu hút sự chú ý */
+  letter-spacing: 1px; /* Tăng khoảng cách giữa các chữ */
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: all 1s ease; /* Hiệu ứng chuyển động chậm */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Thêm bóng cho chữ */
+}
+
+.product-details h2.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.product-details h3 {
+  font-size: 24px;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.product-details p {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.product-details img {
+  max-width: 60%; /* Giảm kích thước ảnh xuống 60% */
+  height: auto;
+  border-radius: 10px;
+
+  opacity: 0;
+  transform: translateY(50px); /* Để ảnh từ từ trượt lên */
+  transition: all 1s ease;
+  margin-top: 20px; /* Thêm khoảng cách giữa ảnh và văn bản */
+}
+
+.product-details img.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Giảm khoảng cách giữa chữ và ảnh */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px; /* Giảm khoảng cách giữa các cột */
+}
+
+.row .col-lg-6 {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Căn giữa chữ và ảnh */
+}
+
+.product-details .col-lg-6 {
+  padding: 0 15px; /* Giảm khoảng cách giữa các cột */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .product-details h2 {
+    font-size: 2rem;
+  }
+
+  .product-details h3 {
+    font-size: 1.5rem;
+  }
+
+  .product-details p {
+    font-size: 1rem;
+  }
+
+  .product-details img {
+    max-height: 350px;
+    max-width: 100%; /* Đảm bảo ảnh không vượt quá chiều rộng màn hình */
+  }
+
+  .row {
+    flex-direction: column;
+  }
+}
+
+/* Sản phẩm nổi bật */
+.featured-products {
+  background-color: #f8f9fa;
+  padding: 60px 20px;
+}
+
+.featured-products h2 {
+  font-size: 36px;
+  font-family: 'Poppins', sans-serif;
+  color: #000000; /* Màu chữ đen */
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Bóng nhẹ cho chữ */
+}
+
+/* Cấu trúc card */
+.product-card {
+  position: relative;
+  overflow: hidden;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+
+.product-card:hover {
+  transform: translateY(-10px); /* Nâng lên khi hover */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.1); /* Hiệu ứng zoom khi hover */
+}
+
+.product-card .card-body {
+  padding: 20px;
+}
+
+.product-card .card-title {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.product-card .card-text {
+  font-size: 16px;
+  color: #ffb703; /* Màu vàng cho giá */
+}
+
+/* Cấu trúc Row và Card */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.col-12 {
+  width: 100%;
+}
+
+.col-md-3 {
+  flex: 1;
+  max-width: 23%; /* Điều chỉnh để mỗi sản phẩm chiếm 3 cột */
+  padding: 0 15px;
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    box-shadow: none;
+  }
+
+  .product-card img {
+    max-height: 300px;
+  }
+
+  .product-card .card-title {
+    font-size: 18px;
+  }
+
+  .product-card .card-text {
+    font-size: 14px;
+  }
+
+  .col-md-3 {
+    max-width: 100%; /* Khi màn hình nhỏ, các card sẽ chiếm 100% chiều rộng */
+    margin-bottom: 20px;
+  }
+}
+
+/* Sản phẩm bán chạy */
+.best-sellers {
+  background-color: #f8f9fa;
+  padding: 60px 20px;
+}
+
+.best-sellers h2 {
+  font-size: 36px;
+  font-family: 'Poppins', sans-serif;
+  color: #000000; /* Màu chữ đen */
+  margin-bottom: 40px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1); /* Bóng nhẹ cho chữ */
+  
+}
+
+/* Hiệu ứng nhịp tim cho tiêu đề */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+/* Đảm bảo rằng modal đẹp và dễ nhìn */
+.modal-content {
+  padding: 20px;
+}
+
+.modal-title {
+  font-size: 24px;
+  color: #333;
+  font-weight: bold;
+}
+
+.modal-body input, .modal-body textarea {
+  font-size: 16px;
+  color: #444;
+}
+
+.modal-footer button {
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+/* Thông tin sản phẩm */
+.best-sellers h3 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.price {
+  font-size: 24px;
+  color: #ffb703; /* Màu vàng nổi bật cho giá */
+  font-weight: 700;
+}
+
+.product-description {
+  font-size: 16px;
+  color: #444;
+  line-height: 1.6;
+}
+
+.product-benefits ul {
+  padding-left: 20px;
+}
+
+.product-benefits li {
+  font-size: 14px;
+  color: #444;
+  list-style-type: disc;
+}
+
+.product-benefits strong {
+  font-weight: 700;
+  color: #333;
+}
+
+/* Nút "Mua ngay" và "Tư vấn ngay" */
+.btn-buy-now, .btn-consult-now {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-buy-now {
+  background-color: #007bff; /* Xanh dương nhẹ */
+  border: none;
+}
+
+.btn-buy-now:hover {
+  background-color: #0056b3; /* Xanh dương đậm */
+}
+
+.btn-consult-now {
+  background-color: #ff4c4c; /* Đỏ */
+  border: none;
+}
+
+.btn-consult-now:hover {
+  background-color: #e70000; /* Đỏ đậm */
+}
+
+.d-flex {
+  display: flex;
+  gap: 20px;
+}
+/* Nút "Mua ngay" và "Tư vấn ngay" */
+.btn-buy-now, .btn-consult-now {
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: white;
+  transition: all 0.3s ease;
+  animation: pulse 2s infinite; /* Hiệu ứng nhịp tim cho nút */
+}
+
+/* Hiệu ứng nhịp tim */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1); /* Phóng to khi giữa nhịp */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.btn-buy-now {
+  background-color: #007bff; /* Xanh dương nhẹ */
+  border: none;
+}
+
+.btn-buy-now:hover {
+  background-color: #0056b3; /* Xanh dương đậm */
+}
+
+.btn-consult-now {
+  background-color: #ff4c4c; /* Đỏ */
+  border: none;
+}
+
+.btn-consult-now:hover {
+  background-color: #e70000; /* Đỏ đậm */
+}
+
+.d-flex {
+  display: flex;
+  gap: 20px;
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .best-sellers h2 {
+    font-size: 2rem;
+  }
+
+  .best-sellers h3 {
+    font-size: 1.5rem;
+  }
+
+  .best-sellers p {
+    font-size: 1rem;
+  }
+
+  .best-sellers .col-lg-6 {
+    text-align: center;
+  }
+
+  .best-sellers .col-lg-6 img {
+    max-height: 300px;
+  }
+}
+
+/*Phản hồi*/
+.testimonial-section {
+  background: rgb(227, 227, 227);
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 36px;
+  color: #a35e00;
+  margin-bottom: 40px;
+}
+
+.testimonials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.testimonial-card {
+  background: white;
+  padding: 25px 30px;
+  border-radius: 15px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 15px 30px rgba(255, 193, 7, 0.15);
+  border-left: 5px solid #f4b400;
+  border-right: 5px solid #f4b400;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 35px rgba(255, 193, 7, 0.25);
+}
+
+.testimonial-box {
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #333;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  position: relative;
+}
+
+.testimonial-box::before {
+  content: "“";
+  font-size: 50px;
+  color: #f4b400;
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  opacity: 0.2;
+}
+
+.testimonial-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.testimonial-profile img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #f4b400;
+}
+
+.testimonial-profile .info {
+  text-align: left;
+}
+
+.testimonial-profile .info strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #a35e00;
+}
+
+.testimonial-profile .info span {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* Hiệu ứng khi cuộn đến */
+.fade-slide.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: all 0.8s ease;
+}
+@media (max-width: 768px) {
+  .testimonial-card {
+    padding: 20px;
+  }
+  .testimonial-profile img {
+    width: 50px;
+    height: 50px;
+  }
+}
+footer {
+      text-align: center;
+      background: #333;
+      color: #fff;
+      padding: 20px;
+      font-size: 14px;
+    }
+     .testimonials {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      text-align: left;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .testimonial-box {
+      background: #00d4aa;
+      color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 500px;
+      position: relative;
+    }
+    .testimonial-box::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 40px;
+      border-width: 10px;
+      border-style: solid;
+      border-color: #00d4aa transparent transparent transparent;
+    }
+    .testimonial-profile {
+      display: flex;
+      align-items: center;
+      margin-top: 50px;
+    }
+    .testimonial-profile img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 15px;
+      margin-bottom: 10px;
+      margin-top: -30px;
+    }
+    .testimonial-profile .info {
+      color: #000;
+    }
+    .testimonial-profile .info strong {
+      display: block;
+      font-weight: 700;
+    }
+    .logo{
+        border-radius: 50%;
+    }
+/*social media*/
+.social-fixed {
+          position: fixed;
+          right: 20px;
+          bottom: 100px;
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+          z-index: 999;
+        }
+
+        .social-icon {
+          width: 48px;
+          height: 48px;
+          background-color: transparent; /* <-- Nền trong suốt */
+          border-radius: 50%;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          animation: pulse 2s infinite;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .social-icon img {
+          width: 46px;
+          height: 46px;
+          object-fit: contain;
+          transition: transform 0.3s ease;
+        }
+        /* Hover effect */
+        .social-icon:hover {
+          transform: scale(1.2) rotate(8deg);
+          background-color: #f0fff0;
+          box-shadow: 0 12px 30px rgba(46, 139, 87, 0.3);
+        }
+        .social-icon:hover img {
+          transform: scale(1.1);
+        }
+        /* Pulse animation */
+        @keyframes pulse {
+          0% {
+            box-shadow: 0 0 0 0 rgba(46, 139, 87, 0.4);
+          }
+          70% {
+            box-shadow: 0 0 0 12px rgba(46, 139, 87, 0);
+          }
+          100% {
+            box-shadow: 0 0 0 0 rgba(46, 139, 87, 0);
+          }
+        }
+        /* Popup thư cảm ơn */
+.thankyou-letter {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.letter-content {
+  background: #fff9e6;
+  padding: 30px 40px;
+  border-radius: 15px;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  animation: popupFadeIn 0.5s ease;
+}
+
+.letter-content h3 {
+  color: #a35e00;
+  margin-bottom: 15px;
+}
+
+.letter-content p {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+}
+
+.close-letter {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  color: #888;
+  cursor: pointer;
+}
+
+@keyframes popupFadeIn {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+  </style>
+</head>
+<body>
+<div class="social-fixed">
+  <a href="javascript:void(0);" class="social-icon" id="open-letter" title="Lá thư cảm ơn">
+    <img src="image/logothu1.png" alt="Lá thư" />
+  </a>
+  <a href="https://www.facebook.com/" target="_blank" class="social-icon" title="Facebook">
+    <img src="image/logofb.png" alt="Facebook">
+  </a>
+  <a href="https://zalo.me/" target="_blank" class="social-icon" title="Zalo">
+    <img src="image/logozalo.png" alt="Zalo">
+  </a>
+  <a href="https://www.instagram.com/" target="_blank" class="social-icon" title="Instagram">
+    <img src="https://static.vecteezy.com/system/resources/previews/012/493/083/large_2x/instagram-logo-3d-illustration-free-png.png" alt="Instagram">
+  </a>
+  <a href="https://www.youtube.com/" target="_blank" class="social-icon" title="YouTube">
+    <img src="https://1.bp.blogspot.com/-W3R9CzV2AWk/YCo9Ev2CcVI/AAAAAAAAD88/qymHYkY-wUwHrClgIXxaZVL_echTZbD0ACLcBGAsYHQ/w1200-h630-p-k-no-nu/Logo%2BYoutube.png" alt="YouTube">
+  </a>
+</div>
+<!-- Popup Lá Thư -->
+<div class="thankyou-letter" id="thankyou-letter">
+  <div class="letter-content">
+    <span class="close-letter" id="close-letter">&times;</span>
+    <h3>🌟 Cảm Ơn Quý Khách 🌟</h3>
+    <p>Chúng tôi trân trọng từng lượt ghé thăm và đơn hàng của Quý Khách.</p>
+    <p>Hy vọng sản phẩm công ty sẽ mang lại sự hài lòng và tiện nghi tối ưu cho không gian của bạn!</p>
+    <p><b>Trân trọng,<br>Đội ngũ công ty</b></p>
+  </div>
+</div>
+<!-- HEADER -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow-sm sticky-top">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" href="#">WatchLux</a>
+
+    <!-- Toggle for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+      aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Centered Menu -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">Trang chủ</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#company-info">Giới thiệu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#congdung">Công dụng</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#ctsp">Sản phẩm</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#bestseller">Bán chạy</a>
+        </li>
+      </ul>
+
+      <!-- CTA Button -->
+      <a href="#muahang" class="btn btn-cta d-none d-lg-inline-block">Mua ngay</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero-2col d-flex align-items-center">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- Left: Slogan + Buttons -->
+      <div class="col-lg-6 text-lg-start text-center mb-4 mb-lg-0">
+        <h1 class="display-5 fw-bold animate-left">Khám Phá Đẳng Cấp Thời Gian</h1>
+        <p class="lead mt-3 mb-4 animate-left delay-1">Sự kết hợp hoàn hảo giữa công nghệ và đẳng cấp – dành cho bạn.</p>
+
+        <!-- ✅ Nút nằm đúng trong khối slogan -->
+        <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3 mt-4">
+          <a href="#bosuutap" class="btn btn-outline-dark btn-lg px-4 animate-left delay-2">Khám phá ngay</a>
+          <a href="#muahang" class="btn btn-cta btn-lg px-4 animate-left delay-3">Mua ngay</a>
+        </div>
+      </div>
+
+      <!-- Right: Product Image -->
+      <div class="col-lg-6 text-center">
+        <img src="image/dongho1.png"
+             class="img-fluid animate-right spin-3d" loading="lazy"
+             alt="Đồng hồ cao cấp">
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- Giới thiệu về công ty -->
+<section class="company-info d-flex align-items-center py-5" id="company-info">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- Left: Hình ảnh công ty -->
+      <div class="col-lg-6 text-center text-lg-start">
+        <img src="image/cty.png" 
+             alt="Công ty đồng hồ" class="img-fluid company-image" id="company-image">
+      </div>
+
+      <!-- Right: Nội dung giới thiệu -->
+      <div class="col-lg-6 mt-4 mt-lg-0">
+        <h2 class="fw-bold" id="company-title">Về Công Ty</h2>
+        <p class="lead mt-3" id="company-description">Chúng tôi là một công ty tiên phong trong ngành đồng hồ cao cấp, mang đến cho bạn những sản phẩm chất lượng nhất với thiết kế sang trọng và tinh tế. Được sản xuất từ những vật liệu cao cấp, mỗi chiếc đồng hồ của chúng tôi là một tác phẩm nghệ thuật, thể hiện sự đẳng cấp và cá tính của chủ nhân.</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!--Công dụng-->
+<section class="benefit-section" id="congdung">
+  <h2 class="animate-on-scroll">Công dụng sản phẩm</h2>
+  <div class="benefit-grid">
+    <div class="benefit-col">
+      <div class="benefit-item animate-on-scroll" data-delay="0">
+        <img src="image/dongho1.png" alt="Chống va đập">
+        <h3>Chống va đập mạnh</h3>
+        <p>Khả năng chịu lực cao, hạn chế nứt vỡ khi bị tác động vật lý.</p>
+      </div>
+      <div class="benefit-item animate-on-scroll" data-delay="0.2">
+        <img src="image/dongho1.png" alt="Chống trầy xước">
+        <h3>Chống trầy xước</h3>
+        <p>Bề mặt cứng cáp giúp kính luôn sáng đẹp sau thời gian dài sử dụng.</p>
+      </div>
+    </div>
+    <div class="benefit-center animate-on-scroll" data-delay="0.4">
+      <img src="image/dongho1.png" alt="co chính" class="center-product spin-3d"loading="lazy">
+    </div>
+    <div class="benefit-col">
+      <div class="benefit-item animate-on-scroll" data-delay="0.6">
+        <img src="image/dongho1.png" alt="Cách âm, cách nhiệt">
+        <h3>Cách âm, cách nhiệt</h3>
+        <p>Giữ không gian yên tĩnh, tiết kiệm điện năng khi sử dụng điều hòa.</p>
+      </div>
+      <div class="benefit-item animate-on-scroll" data-delay="0.8">
+        <img src="image/dongho1.png" alt="Thẩm mỹ cao">
+        <h3>Thẩm mỹ cao</h3>
+        <p>Thiết kế hiện đại, sang trọng phù hợp nhiều không gian nội thất.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Chi tiết sản phẩm -->
+<section class="product-details py-5">
+  <div class="container">
+    <!-- Tiêu đề -->
+    <h2 class="text-center mb-5 fw-bold animate-on-scroll" id="ctsp">Chi Tiết Sản Phẩm</h2>
+
+    <!-- Hàng 1: Thông tin sản phẩm và hình ảnh -->
+    <div class="row align-items-center mb-5">
+      <!-- Bên trái: Thông tin sản phẩm -->
+      <div class="col-lg-6">
+        <h3 class="fw-bold">Thông tin sản phẩm</h3>
+        <p>Đồng hồ của chúng tôi không chỉ giúp bạn quản lý thời gian hiệu quả mà còn mang lại sự tự tin với độ chính xác cao trong mỗi lần sử dụng. Chống nước, chống va đập và khả năng duy trì hiệu suất tối ưu trong mọi điều kiện môi trường là những tính năng nổi bật của sản phẩm này.</p>
+      </div>
+      <!-- Bên phải: Hình ảnh sản phẩm -->
+      <div class="col-lg-6">
+        <img src="image/dongho1.png"
+             alt="Đồng hồ cao cấp" class="img-fluid">
+      </div>
+    </div>
+
+    <!-- Hàng 2: Hiệu quả sản phẩm -->
+    <div class="row align-items-center mb-5">
+      <!-- Bên trái: Ảnh -->
+      <div class="col-lg-6 m-xxl-5">
+        <img src="image/dongho1.png"
+             alt="Hiệu quả sản phẩm" class="img-fluid" style="margin-left: 50px;">
+      </div>
+      <!-- Bên phải: Hiệu quả sản phẩm -->
+      <div class="col-lg-6">
+        <h3 class="fw-bold" style="margin-left: -100px;">Hiệu quả sản phẩm</h3>
+        <p style="margin-left: -100px;">Đồng hồ cao cấp của chúng tôi được thiết kế với vật liệu bền bỉ và công nghệ tiên tiến, đem đến sự chính xác và sang trọng. 
+        Các chi tiết tinh tế giúp làm nổi bật phong cách của bạn. 
+        Chế độ bảo hành lên đến 2 năm đảm bảo sự yên tâm khi sử dụng sản phẩm.</p>
+      </div>
+    </div>
+
+    <!-- Hàng 3: Tính năng sản phẩm -->
+    <div class="row align-items-center">
+      <!-- Bên trái: Tính năng sản phẩm -->
+      <div class="col-lg-6">
+        <h3 class="fw-bold">Tính năng sản phẩm</h3>
+        <p>Đồng hồ sở hữu nhiều tính năng tiên tiến như bấm giờ, báo thức, kết nối Bluetooth với điện thoại và đồng bộ thời gian tự động. Các tính năng này không chỉ phục vụ cho công việc mà còn giúp bạn tận hưởng mỗi khoảnh khắc trong cuộc sống.</p>
+      </div>
+      <!-- Bên phải: Ảnh -->
+      <div class="col-lg-6">
+        <img src="image/dongho1.png"
+             alt="Tính năng sản phẩm" class="img-fluid">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sản phẩm nổi bật -->
+<section class="featured-products py-5">
+  <div class="container">
+    <!-- Tiêu đề -->
+    <h2 class="text-center mb-5 fw-bold">Sản Phẩm Nổi Bật</h2>
+    
+    <!-- Row sản phẩm -->
+    <div class="row justify-content-center">
+      <!-- Card 1 -->
+      <div class="col-12 col-md-3 mb-4">
+        <div class="card product-card">
+          <img src="image/dongho2.png" alt="Sản phẩm 1" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Đồng Hồ Thời Trang</h5>
+            <p class="card-text">2.500.000 VND</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-12 col-md-3 mb-4">
+        <div class="card product-card">
+          <img src="image/dongho2.png" alt="Sản phẩm 2" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Đồng Hồ Cao Cấp</h5>
+            <p class="card-text">3.500.000 VND</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-12 col-md-3 mb-4">
+        <div class="card product-card">
+          <img src="image/dongho2.png" alt="Sản phẩm 3" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Đồng Hồ Thể Thao</h5>
+            <p class="card-text">1.800.000 VND</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="col-12 col-md-3 mb-4">
+        <div class="card product-card">
+          <img src="image/dongho2.png" alt="Sản phẩm 4" class="card-img-top">
+          <div class="card-body">
+            <h5 class="card-title">Đồng Hồ Sang Trọng</h5>
+            <p class="card-text">5.000.000 VND</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Sản phẩm bán chạy -->
+<!-- Sản phẩm bán chạy -->
+<section class="best-sellers py-5" id="bestseller">
+  <div class="container">
+    <!-- Tiêu đề -->
+    <h2 class="text-center mb-5 fw-bold animate-on-scroll">Sản Phẩm Bán Chạy</h2>
+    
+    <!-- Row sản phẩm -->
+    <div class="row align-items-center mb-5">
+      <!-- Bên trái: Hình ảnh sản phẩm -->
+      <div class="col-lg-6">
+        <img src="image/dongho1.png" alt="Sản phẩm bán chạy 1" class="img-fluid">
+      </div>
+      
+      <!-- Bên phải: Thông tin sản phẩm -->
+      <div class="col-lg-6">
+        <h3 class="fw-bold">Đồng Hồ Thời Trang</h3>
+        <p class="price">2.500.000 VND</p>
+        <p class="product-description">Đồng hồ thời trang với thiết kế sang trọng, phù hợp cho cả nam và nữ. Chống nước, chống va đập và mang lại sự tiện dụng tối đa.</p>
+        <div class="product-benefits">
+          <p><strong>Công dụng:</strong></p>
+          <ul>
+            <li>Chống nước tối ưu.</li>
+            <li>Thiết kế sang trọng và thời trang.</li>
+            <li>Chạy chính xác và bền bỉ.</li>
+          </ul>
+        </div>
+        <div class="d-flex gap-3">
+          <a href="https://elogi.vn/" class="btn btn-buy-now">Mua ngay</a>
+          <button class="btn btn-consult-now" data-bs-toggle="modal" data-bs-target="#consultModal">Tư vấn ngay</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal Tư vấn ngay -->
+<div class="modal fade" id="consultModal" tabindex="-1" aria-labelledby="consultModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="consultModalLabel">Đăng ký tư vấn</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form id="consultForm">
+          <div class="mb-3">
+            <label for="name" class="form-label">Tên</label>
+            <input type="text" class="form-control" id="name" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" required>
+          </div>
+          <div class="mb-3">
+            <label for="age" class="form-label">Tuổi</label>
+            <input type="number" class="form-control" id="age" required>
+          </div>
+          <div class="mb-3">
+            <label for="message" class="form-label">Lý do tư vấn</label>
+            <textarea class="form-control" id="message" rows="3" required></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+        <button type="submit" class="btn btn-primary" id="submitConsult">Đăng ký</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section class="testimonial-section" id="ykien">
+  <h2 class="section-title">Ý kiến khách hàng</h2>
+  <div class="testimonials">
+    <div class="testimonial-card fade-slide" data-delay="0">
+      <div class="testimonial-box">
+        Đã mua hàng tại đây nhiều lần và rất tin tưởng. Da mình hợp với dòng kính này. Sau khi lắp đặt, không gian nhìn rất sang trọng, sáng rõ. Rất hài lòng với dịch vụ!
+      </div>
+      <div class="testimonial-profile">
+        <img src="image/vchonghao.jpg" alt="Phạm Hương">
+        <div class="info">
+          <strong>Vợ Chồng nhà Hào</strong>
+          <span>Nhân viên văn phòng</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card fade-slide" data-delay="0.3">
+      <div class="testimonial-box">
+        Đồng hồ rất đẹp mình rất thích ngày mai mình sẽ mua cho cả phòng của mình mỗi người 1 cái đeo chơi. Ai mà có người yêu thì mình mua thêm 1 cái tặng kèm 
+      </div>
+      <div class="testimonial-profile">
+        <img src="image/baohihi.jpg" alt="Gia Bảo">
+        <div class="info">
+          <strong>Quốc Bảo</strong>
+          <span>Nhân viên bán hàng</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<footer style="background-color: #1f1f1f; color: #fff; padding: 40px 20px; text-align: center;">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-around; gap: 30px; max-width: 1200px; margin: auto;">
+    
+    <!-- Địa chỉ -->
+    <div style="flex: 1; min-width: 250px;">
+      <h6>Công ty EMC</h6>
+      <p>Địa chỉ: Tòa nhà EMC, Số 12 Duy Tân, Cầu Giấy, Hà Nội</p>
+      
+    </div>
+
+    <!-- Liên hệ -->
+    <div style="flex: 1; min-width: 250px;">
+      <h6>Thông tin liên hệ</h6>
+      <p>Hotline: <a href="tel:19006789" style="color: #ffc107;">1900 6789</a></p>
+      <p>Email: <a href="mailto:lienhe@emc.vn" style="color: #ffc107;">info@emcgroup.com.vn</a></p>
+    </div>
+
+    <!-- Giờ làm việc -->
+    <div style="flex: 1; min-width: 250px;">
+      <h6> Giờ làm việc</h6>
+      <p>Thứ 2 – Thứ 6: 9:00 – 17:30</p>
+      <p>Thứ 7: 9:00 - 12:00</p>
+      <p>Chủ Nhật & Lễ: Nghỉ</p>
+    </div>
+
+    <!-- Đăng ký nhận tin -->
+    <div style="flex: 1; min-width: 250px;">
+  <h6>Mạng Xã Hội</h6>
+  <div class="social-icons2">
+   Facebook | Zalo | Instagram | Youtube
+  </div>
+</div>
+
+
+  </div>
+
+  <hr style="margin: 40px auto; width: 80%; border: 1px solid rgba(255,255,255,0.1);">
+
+  <p style="font-size: 14px;">© 2025 EMC. Thiết kế bởi Phu | Mọi quyền được bảo lưu.</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+<!--Hiệu ứng về chúng tôi-->
+<script>
+  // Tạo observer để phát hiện khi phần tử xuất hiện trên màn hình
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show'); // Thêm lớp 'show' khi phần tử vào viewport
+      }
+    });
+  }, {
+    threshold: 0.5 // Khi 50% phần tử vào trong viewport thì mới trigger hiệu ứng
+  });
+
+  // Quan sát các phần tử cần hiệu ứng
+  observer.observe(document.querySelector('#company-info'));
+  observer.observe(document.querySelector('#company-image'));
+  observer.observe(document.querySelector('#company-title'));
+  observer.observe(document.querySelector('#company-description'));
+</script>
+<!--Hiệu ứng công dụng sản phẩm-->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const delay = el.dataset.delay || 0;
+        setTimeout(() => {
+          el.classList.add("visible");
+        }, delay * 1000);
+        observer.unobserve(el);
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  document.querySelectorAll(".animate-on-scroll").forEach(el => {
+    observer.observe(el);
+  });
+});
+</script>
+<!--Chi tiết sản phẩm-->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        el.classList.add("visible"); // Thêm lớp 'visible' khi phần tử vào viewport
+        observer.unobserve(el); // Ngừng theo dõi phần tử sau khi hiệu ứng được kích hoạt
+      }
+    });
+  }, {
+    threshold: 0.2 // Kích hoạt hiệu ứng khi phần tử chiếm ít nhất 20% trong viewport
+  });
+
+  // Quan sát các phần tử cần hiệu ứng
+  document.querySelectorAll(".product-details h2, .product-details h3, .product-details p, .product-details img").forEach(el => {
+    observer.observe(el);
+  });
+});
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const delay = el.dataset.delay || 0;
+        setTimeout(() => {
+          el.classList.add("visible");
+        }, delay * 1000);
+        observer.unobserve(el);
+      }
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  document.querySelectorAll(".fade-slide").forEach(el => {
+    observer.observe(el);
+  });
+});
+</script>
+<script>
+  const openLetter = document.getElementById('open-letter');
+  const letterBox = document.getElementById('thankyou-letter');
+  const closeLetter = document.getElementById('close-letter');
+
+  openLetter.addEventListener('click', () => {
+    letterBox.style.display = 'flex';
+  });
+
+  closeLetter.addEventListener('click', () => {
+    letterBox.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === letterBox) {
+      letterBox.style.display = 'none';
+    }
+  });
+</script>
+<script>
+document.getElementById('submitConsult').addEventListener('click', function() {
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const age = document.getElementById('age').value;
+  const message = document.getElementById('message').value;
+
+  if (name && email && age && message) {
+    // Đóng modal sau khi đăng ký
+    var myModal = new bootstrap.Modal(document.getElementById('consultModal'));
+    myModal.hide(); // Đóng modal
+
+    // Hiển thị thông báo đăng ký thành công
+    alert('Đăng ký thành công! Chúng tôi sẽ liên hệ với bạn sớm.');
+
+    // Chuyển hướng người dùng về trang index.html sau khi nhấn "OK"
+    window.location.href = "index.html"; // Thay đổi đường dẫn đến trang bạn muốn chuyển
+
+    // Làm trống form sau khi đăng ký thành công
+    document.getElementById('consultForm').reset();
+  } else {
+    alert('Vui lòng điền đầy đủ thông tin.');
+  }
+});
+</script>
+
