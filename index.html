@@ -544,6 +544,124 @@
     flex-direction: column;
   }
 }
+/* Điện thoại nhỏ như iPhone SE, Galaxy A51/71 */
+@media (max-width: 375px) {
+  .product-details h2 {
+    font-size: 1.5rem;
+  }
+
+  .product-details h3 {
+    font-size: 1.2rem;
+  }
+
+  .product-details p {
+    font-size: 0.9rem;
+  }
+
+  .product-details img {
+    max-width: 100%;
+    margin-top: 10px;
+  }
+
+  .product-details .row {
+    flex-direction: column;
+  }
+
+  .product-details .col-lg-6 {
+    padding: 10px 0;
+  }
+}
+
+/* Các thiết bị di động lớn hơn như iPhone XR, 12 Pro, 14 Pro Max, Pixel 7, Galaxy S20 Ultra */
+@media (min-width: 376px) and (max-width: 767px) {
+  .product-details h2 {
+    font-size: 2rem;
+  }
+
+  .product-details h3 {
+    font-size: 1.3rem;
+  }
+
+  .product-details p {
+    font-size: 1rem;
+  }
+
+  .product-details img {
+    max-width: 100%;
+    margin-top: 10px;
+  }
+
+  .product-details .row {
+    flex-direction: column;
+  }
+}
+
+/* Tablet: iPad Mini, Air, Pro, Surface Duo */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .product-details h2 {
+    font-size: 2.2rem;
+  }
+
+  .product-details h3 {
+    font-size: 1.5rem;
+  }
+
+  .product-details p {
+    font-size: 1.05rem;
+  }
+
+  .product-details img {
+    max-width: 80%;
+  }
+
+  .product-details .row {
+    flex-direction: column;
+  }
+}
+
+/* Surface Pro 7, Z Fold 5 mở ngang, Zenbook Fold, Nest Hub/Max */
+@media (min-width: 1025px) and (max-width: 1366px) {
+  .product-details h2 {
+    font-size: 2.5rem;
+  }
+
+  .product-details h3 {
+    font-size: 1.6rem;
+  }
+
+  .product-details p {
+    font-size: 1.1rem;
+  }
+
+  .product-details img {
+    max-width: 70%;
+  }
+
+  .product-details .row {
+    flex-direction: row;
+  }
+}
+/* Mặc định trên mobile/tablet: không margin */
+.text-content-right {
+  margin-left: 0;
+}
+
+/* Chỉ áp dụng margin-left trên desktop lớn */
+@media (min-width: 1200px) {
+  .text-content-right {
+    margin-left: -100px;
+  }
+}
+.image-margin-left {
+  margin-left: 0;
+}
+
+@media (min-width: 1200px) {
+  .image-margin-left {
+    margin-left: 50px;
+  }
+}
+
 
 /* Sản phẩm nổi bật */
 .featured-products {
@@ -1099,186 +1217,346 @@ footer {
 }
 
 /*Hướng dẫn đặt hàng*/
-/*Hướng dẫn đặt hàng*/
-.dathang{
-  background-color: #f8fdfd;
-}
-        .order-timeline {
-            position: relative;
-            padding: 40px 10px;
-            max-width: 900px;
-            margin: 0 auto;
+/*order*/
+
+    #order1{
+        background-color: rgba(246, 252, 251, 0.853);
+        padding: 20px;
+    }
+        .order-steps {
+          display: flex;
+          flex-direction: column;
+          gap: 50px;
+          margin-top: 50px;
+          position: relative;
         }
 
-        .order-timeline::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 4px;
-            height: calc(100% - 40px);
-            background: #acacac;
-            transform: translateX(-50%);
-            z-index: 0;
+        .order-step {
+          position: relative;
+          width: 50%;
+          height: 100px;
+          padding: 25px 50px;
+          border-radius: 15px;
+          background: linear-gradient(135deg, #e7e7e7, #fbfbf3);
+          box-shadow: 0 8px 25px rgba(255, 251, 242, 0.1);
+          transition: all 0.5s ease;
+          
         }
 
-        .section-title {
-            text-align: center;
-             font-size: 36px;
+        .order-step:nth-child(odd) {
+          align-self: flex-start;
+          margin-left: 0;
+        }
+
+        .order-step:nth-child(even) {
+          align-self: flex-end;
+          margin-right: 0;
+          border-left: none;
+          
+        }
+
+        .order-step::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 20px;
+          height: 20px;
+       
+          border-radius: 50%;
+          z-index: 2;
+        }
+
+        .order-step:nth-child(odd)::after {
+          left: -10px;
+        }
+
+        .order-step:nth-child(even)::after {
+          right: -10px;
+        }
+
+        .order-step:hover {
+          transform: translateY(-5px) scale(1.02);
+       
+          box-shadow: 0 15px 30px rgba(46, 139, 87, 0.2);
+        }
+
+        .step-number {
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          background: linear-gradient(248,246,239);
+          color: white;
+          font-size: 1.5rem;
+          font-weight: bold;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin-bottom: 15px;
+          box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+          transition: all 0.4s ease;
+        }
+
+        .order-step:hover .step-number {
+          transform: rotateY(360deg) scale(1.2);
+          
+          box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+        }
+
+        .step-icon {
+          font-size: 2.5rem;
+          margin-bottom: 10px;
+        }
+
+        /* Fade-in animation (cuộn đến mới hiện) */
+        .fade-step {
+          opacity: 0;
+          transform: translateY(30px);
+          transition: all 0.6s ease;
+          text-align: center;
+           font-size: 36px;
             font-family: 'Poppins', sans-serif;
             color: #000000; /* Màu vàng nổi bật */
-
-            font-weight: 700; /* Chữ đậm */
-            text-transform: uppercase; /* Viết hoa để thu hút sự chú ý */
-            letter-spacing: 1px; /* Tăng khoảng cách giữa các chữ */
-            
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* Thêm bóng cho chữ */
         }
 
-        .timeline-step {
-            position: relative;
-            width: 50%;
-            padding: 20px 30px;
-            box-sizing: border-box;
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.8s ease;
+        .fade-step.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+        .step-header {
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          margin-bottom: 15px;
         }
 
-        .timeline-step.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .step-number {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background: linear-gradient(45deg, #2E8B57, #FFD700);
+          color: white;
+          font-size: 1.3rem;
+          font-weight: bold;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+          transition: all 0.4s ease;
         }
 
-        .timeline-step.left {
-            left: 0;
-            text-align: right;
+        .step-icon {
+          font-size: 2rem;
+          line-height: 1;
+        }
+        .step-header {
+          display: flex;
+          align-items: flex-start;
+          gap: 15px;
         }
 
-        .timeline-step.right {
-            left: 50%;
-            text-align: left;
+        .step-header-content {
+          flex: 1;
         }
 
-        .timeline-step .content {
-            background: #fff;
-            padding: 15px 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-            display: inline-block;
-            position: relative;
+        .step-header-content h4 {
+          margin: 0;
+          font-size: 1.3rem;
+          color: #2E8B57;
         }
 
-        /* Circle số */
-        .timeline-step .circle {
-            position: absolute;
-            top: 25px;
-            width: 32px;
-            height: 32px;
-            background: #ff6347;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            z-index: 2;
-            box-shadow: 0 0 0 4px #fff;
+        .step-header-content p {
+          margin: 5px 0 0;
+          font-size: 1rem;
+          color: #555;
+        }
+        /* Tooltip mặc định */
+        .order-step::before {
+          content: attr(data-tooltip);
+          position: absolute;
+          background: rgba(248,246,239);
+          color: rgb(0, 0, 0);
+          padding: 10px 15px;
+          font-size: 0.9rem;
+          border-radius: 10px;
+          line-height: 1.5;
+          white-space: normal;
+          width: max-content;
+          max-width: 260px;
+          text-align: left;
+          opacity: 0;
+          pointer-events: none;
+          transition: opacity 0.3s ease, transform 0.3s ease;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+          z-index: 10;
         }
 
-        .timeline-step.left .circle {
-            right: -16px;
+        /* Vị trí mặc định: phía trên */
+        .order-step::before {
+          top: -70px;
+          left: 50%;
+          transform: translateX(-50%);
         }
 
-        .timeline-step.right .circle {
-            left: -16px;
+        /* BƯỚC 1 và 5: hiển thị tooltip sang phải */
+        .order-step:nth-child(1)::before,
+        .order-step:nth-child(5)::before {
+          top: 50%;
+          left: 105%;
+          transform: translateY(-50%);
         }
 
-        /* Tooltip chi tiết */
-        /* Tooltip chi tiết – ĐẸP HƠN */
-        .timeline-step .tooltip-note {
-            position: absolute;
-            top: -70px;
-            max-width: 240px;
-            background: #fffbf0;
-            color: #333;
-            padding: 12px 16px;
-            border-radius: 10px;
-            font-size: 14px;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
-            opacity: 0;
-            transition: opacity 0.4s ease, transform 0.4s ease;
-            pointer-events: none;
-            transform: translateY(-10px);
-            z-index: 10;
-            font-weight: 500;
-            border: 1px solid #f0c36d;
+        /* Hover */
+        .order-step:hover::before {
+          opacity: 1;
         }
 
-        /* Vị trí trái/phải */
-        .timeline-step.left .tooltip-note {
-            right: 0;
+        /* Hover mượt cho bước 1 và 5 */
+        .order-step:nth-child(1):hover::before,
+        .order-step:nth-child(5):hover::before {
+          transform: translateY(-50%) translateX(5px);
         }
+        /* ===== Tablet & điện thoại ngang (≤ 768px) ===== */
+          @media (max-width: 768px) {
+            .order-steps {
+              gap: 30px;
+              margin-top: 40px;
+            }
 
-        .timeline-step.right .tooltip-note {
-            left: 0;
-        }
+            .order-step {
+              width: 100%;
+              padding: 20px;
+              border-left: 6px solid #2E8B57;
+              border-right: none;
+              align-self: center !important;
+            }
 
-        /* Mũi tên chỉ xuống */
-        .timeline-step .tooltip-note::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 20px;
-            border-width: 10px 10px 0 10px;
-            border-style: solid;
-            border-color: #fffbf0 transparent transparent transparent;
-        }
+            .order-step::after {
+              left: 0;
+              right: auto;
+              transform: translateY(-50%) translateX(-50%);
+            }
 
-        /* Hiển thị khi hover */
-        .timeline-step:hover .tooltip-note {
-            opacity: 1;
-            transform: translateY(0);
-        }
+            .order-step:nth-child(even),
+            .order-step:nth-child(odd) {
+              margin: 0 auto;
+              border-left: 6px solid #2E8B57;
+              border-right: none;
+            }
 
+            /* Tooltip hiển thị phía trên, không tràn */
+            .order-step::before {
+              top: -60px;
+              left: 50%;
+              transform: translateX(-50%);
+              max-width: 90vw;
+            }
 
-        /* Text */
-        .timeline-step h4 {
-            font-size: 17px;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-            color: #333;
-        }
+            .order-step:nth-child(1)::before,
+            .order-step:nth-child(5)::before {
+              top: -60px;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+          }
 
-        .timeline-step p {
-            font-size: 14px;
-            color: #555;
-        }
+          /* ===== Điện thoại nhỏ (≤ 400px) ===== */
+          @media (max-width: 400px) {
+            .section.order-guide .section-title {
+              margin-top: 100px;
+              font-size: 1.6rem;
+            }
+
+            .order-step {
+              padding: 16px;
+            }
+
+            .step-number {
+              width: 40px;
+              height: 40px;
+              font-size: 1rem;
+            }
+
+            .step-icon {
+              font-size: 1.5rem;
+            }
+
+            .step-header-content h4 {
+              font-size: 1.1rem;
+            }
+
+            .step-header-content p {
+              font-size: 0.9rem;
+            }
+
+            .order-step::before {
+              font-size: 0.85rem;
+              padding: 8px 10px;
+              max-width: 95vw;
+            }
+          }
 
         /* Responsive */
-        @media screen and (max-width: 768px) {
-            .timeline-step,
-            .timeline-step.left,
-            .timeline-step.right {
-                width: 100%;
-                left: 0;
-                text-align: left;
-                padding-left: 50px;
-            }
+        @media (max-width: 768px) {
+          .order-step {
+            width: 100%;
+            border-left: 5px solid #2E8B57;
+            border-right: none !important;
+          }
+          .order-step::after {
+            display: none;
+          }
+          .order-step:nth-child(1)::before,
+          .order-step:nth-child(5)::before {
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            top: -60px !important;
+          }
+        }
+        /* ===== Màn hình lớn hơn 768px (tablet dọc, laptop, desktop) ===== */
+        @media (min-width: 768px) {
+          .order-steps {
+            flex-direction: column;
+            align-items: center;
+            gap: 50px;
+            margin-top: 60px;
+          }
 
-            .timeline-step .circle {
-                left: 10px !important;
-                right: auto !important;
-            }
+          .order-step {
+            width: 90%;
+            padding: 30px 40px;
+            max-width: 800px;
+            word-wrap: break-word;
+          }
 
-            .order-timeline::before {
-                left: 26px;
-            }
+          .step-header {
+            flex-wrap: wrap; /* tránh vỡ bố cục khi không đủ chỗ */
+          }
 
-            .timeline-step .tooltip-note {
-                left: 50px;
-                right: auto;
-            }
+          .step-header-content h4 {
+            font-size: 1.4rem;
+          }
+
+          .step-header-content p {
+            font-size: 1rem;
+          }
+
+          .step-icon {
+            font-size: 2rem;
+          }
+
+          .step-number {
+            font-size: 1.3rem;
+            width: 50px;
+            height: 50px;
+          }
+
+          /* Giới hạn chiều rộng tooltip để tránh tràn */
+          .order-step::before {
+            max-width: 360px;
+            white-space: normal;
+          }
         }
   </style>
 </head>
@@ -1456,12 +1734,12 @@ footer {
       <!-- Bên trái: Ảnh -->
       <div class="col-lg-6 m-xxl-5">
         <img src="image/dongho1.png"
-             alt="Hiệu quả sản phẩm" class="img-fluid" style="margin-left: 50px;">
+             alt="Hiệu quả sản phẩm" class="img-fluid image-margin-left" >
       </div>
       <!-- Bên phải: Hiệu quả sản phẩm -->
-      <div class="col-lg-6">
-        <h3 class="fw-bold" style="margin-left: -100px;">Hiệu quả sản phẩm</h3>
-        <p style="margin-left: -100px;">Đồng hồ cao cấp của chúng tôi được thiết kế với vật liệu bền bỉ và công nghệ tiên tiến, đem đến sự chính xác và sang trọng. 
+      <div class="col-lg-6 text-content-right">
+        <h3 class="fw-bold canle" >Hiệu quả sản phẩm</h3>
+        <p class="canle" >Đồng hồ cao cấp của chúng tôi được thiết kế với vật liệu bền bỉ và công nghệ tiên tiến, đem đến sự chính xác và sang trọng. 
         Các chi tiết tinh tế giúp làm nổi bật phong cách của bạn. 
         Chế độ bảo hành lên đến 2 năm đảm bảo sự yên tâm khi sử dụng sản phẩm.</p>
       </div>
@@ -1609,54 +1887,65 @@ footer {
     </div>
   </div>
 </div>
-<!--Hướng dẫn đặt hàng-->
-<section class="dathang" style="padding: 10px;">
-  <div >
-
-  <h2 class="section-title" id="order" >Hướng Dẫn Đặt Hàng</h2>
-        <div class="order-timeline" >
-        <div class="timeline-step left">
-        <div class="content">
-            <h4>Bước 1</h4>
-            <p>Chọn số lượng sản phẩm mong muốn</p>
-            <div class="tooltip-note">Bạn có thể chọn 1 hoặc nhiều sản phẩm tùy nhu cầu</div>
-        </div>
-        <div class="circle">1</div>
-        </div>
-
-
-        <div class="timeline-step right" data-note="Dùng 'Mua Ngay' để thanh toán nhanh, hoặc thêm vào giỏ để tiếp tục mua.">
-            <div class="note-tooltip"></div>
-            <div class="content">
-            <h4>Bước 2</h4>
-            <p>Nhấn nút <strong>'Mua Ngay'</strong> hoặc <strong>'Thêm vào giỏ'</strong></p>
-            <div class="tooltip-note">Dùng 'Mua Ngay' để thanh toán nhanh, hoặc thêm vào giỏ để tiếp tục mua.</div>
+<div id="order1">
+    <section class="section order-guide" id="order">
+      <div class="container">
+        <h2 class="section-title fade-step"><b>Hướng Dẫn Đặt Hàng</b></h2>
+        <div class="order-steps">
+          <div class="order-step fade-step" data-delay="0" data-tooltip="Chọn loại cường lực phù hợp với dòng điện thoại hiện có vd: IPX, IP11,...">
+            <div class="step-header">
+              <div class="step-number">1</div>
+              <div class="step-icon"><i class="fas fa-shopping-cart"></i></div>
+              <div class="step-header-content">
+                <h4>Chọn Sản Phẩm</h4>
+                <p>Lựa chọn loại cường lực với máy</p>
+              </div>
             </div>
-            <div class="circle">2</div>
-        </div>
-
-        <div class="timeline-step left" data-note="Hãy điền đúng tên, địa chỉ và số điện thoại để nhận hàng chính xác.">
-            <div class="note-tooltip"></div>
-            <div class="content">
-            <h4>Bước 3</h4>
-            <p>Điền thông tin giao hàng: tên, địa chỉ, số điện thoại</p>
-            <div class="tooltip-note">Hãy điền đúng tên, địa chỉ và số điện thoại để nhận hàng chính xác.</div>
+          </div>
+          <div class="order-step fade-step" data-delay="400" data-tooltip="Bạn có thể liên hệ qua hotline hoặc inbox Zalo/Facebook để được tư vấn nhanh.">
+            <div class="step-header">
+              <div class="step-number">2</div>
+              <div class="step-icon"><i class="fas fa-phone-alt"></i></div>
+              <div class="step-header-content">
+                <h4>Liên Hệ</h4>
+                <p>Gọi hotline hoặc nhắn tin qua Zalo/Facebook</p>
+              </div>
             </div>
-            <div class="circle">3</div>
-        </div>
-
-        <div class="timeline-step right" data-note="Kiểm tra lại đơn, nhấn xác nhận. Giao hàng từ 1–3 ngày.">
-            <div class="note-tooltip"></div>
-            <div class="content">
-            <h4>Bước 4</h4>
-            <p>Xác nhận đơn và chờ giao hàng tận nơi 🚚</p>
-            <div class="tooltip-note">Kiểm tra lại đơn, nhấn xác nhận. Giao hàng từ 1–3 ngày.</div>
+          </div>
+          <div class="order-step fade-step" data-delay="800" data-tooltip="Xác nhận tên, địa chỉ, số điện thoại, sản phẩm và số lượng.">
+            <div class="step-header">
+              <div class="step-number">3</div>
+              <div class="step-icon"><i class="fas fa-check-circle"></i></div>
+              <div class="step-header-content">
+                <h4>Xác Nhận</h4>
+                <p>Xác nhận đơn hàng và thông tin giao hàng</p>
+              </div>
             </div>
-            <div class="circle">4</div>
+          </div>
+          <div class="order-step fade-step" data-delay="1200" data-tooltip="Chọn hình thức thanh toán phù hợp: COD (trả tiền khi nhận) hoặc chuyển khoản ngân hàng.">
+            <div class="step-header">
+              <div class="step-number">4</div>
+              <div class="step-icon"><i class="fas fa-credit-card"></i></div>
+              <div class="step-header-content">
+                <h4>Thanh Toán</h4>
+                <p>COD hoặc chuyển khoản theo hướng dẫn</p>
+              </div>
+            </div>
+          </div>
+          <div class="order-step fade-step" data-delay="1600" data-tooltip="Giao hàng toàn quốc, thời gian từ 1 đến 2 ngày làm việc tùy khu vực.">
+            <div class="step-header">
+              <div class="step-number">5</div>
+              <div class="step-icon"><i class="fas fa-box"></i></div>
+              <div class="step-header-content">
+                <h4>Nhận Hàng</h4>
+                <p>Nhận hàng tại nhà trong 24–48h</p>
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
+      </div>
+    </section>
 </div>
-</section>
 
 <section class="testimonial-section" id="ykien">
   <h2 class="section-title">Ý kiến khách hàng</h2>
@@ -1875,4 +2164,24 @@ document.getElementById('submitConsult').addEventListener('click', function() {
     document.querySelectorAll('.timeline-step').forEach(step => observer.observe(step));
 });
 
+</script>
+ <script>
+  function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return rect.top <= window.innerHeight;
+  }
+
+  function revealSteps() {
+    document.querySelectorAll('.fade-step').forEach(el => {
+      if (!el.classList.contains('visible') && isElementInViewport(el)) {
+        const delay = el.dataset.delay ? parseInt(el.dataset.delay) : 0;
+        setTimeout(() => {
+          el.classList.add('visible');
+        }, delay);
+      }
+    });
+  }
+
+  window.addEventListener('scroll', revealSteps);
+  window.addEventListener('load', revealSteps);
 </script>
